@@ -8,6 +8,9 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
     )
 
+    @app.route('/')
+    def default():
+        return render_template('index.html')
     @app.route('/hello')
     def hello():
         name = request.args.get('name', 'world')
